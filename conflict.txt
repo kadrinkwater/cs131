@@ -1,0 +1,2 @@
+File with conflict: MAIN
+conflict: DEV
