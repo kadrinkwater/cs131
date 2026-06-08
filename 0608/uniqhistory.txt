@@ -1,0 +1,25 @@
+  208  uniq aa.txt
+  214  uniq fruit.txt > sortedfruit.txt 
+  216  man uniq
+  217  uniq -u fruit.txt > sortedfruit.txt 
+  219  uniq -u fruit.txt 
+  220  man uniq
+  221  uniq -d fruit.txt 
+  222  uniq -u fruit.txt
+  225  uniq -u fruit.txt 
+  237  uniq -u fruit.txt 
+  238  man uniq
+  239  uniq -c fruit.txt 
+  241  uniq -c fruit.txt 
+  244  uniq -c fruit.txt 
+  245  man uniq
+  246  sort fruit.txt | uniq
+  247  sort fruit.txt | uniq -c
+  248  sort fruit.txt | uniq -d
+  256  sort fruit.txt | uniq
+  258  sort -r fruit.txt | uniq
+  259  sort -R fruit.txt | uniq
+  260  sort fruit.txt | uniq
+  261  sort fruit.txt | uniq | wc
+  263  sort fruit.txt | uniq | wc -w
+  265  history | grep "uniq" > uniqhistory.txt

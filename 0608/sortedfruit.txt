@@ -1,0 +1,8 @@
+apple
+banana
+cherry
+orange
+durian
+kumquat
+apple
+banana

@@ -1,0 +1,9 @@
+aa.txt
+a.txt
+bb.txt
+b.txt
+copied
+foo.txt
+fruit.txt
+lsresult.txt
+sortedfruit.txt
