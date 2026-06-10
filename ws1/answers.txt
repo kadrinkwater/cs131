@@ -1,0 +1,12 @@
+T1: cd /home//ishigaki-cs1/cs131/ws1/; pwd
+T2: ls ../data/
+T3: file logs/app01.log; file .env
+T4: ls -lhr
+T5: ls -lS ./logs
+T6: app02.log is 1048576 bytes (~1.0M), owner me (ishigaki-cs1), last modified Jun 8 10:54.
+T7: ls data/ | grep Data.\.csv
+T8: ls -R | grep ^[[:upper:]]
+T9: ls logs/ | grep BACKUP\.[[:digit:]][[:digit:]][[:digit:]]
+T10: cp -r data/ backup/
+T11: mv data/readme.txt data/README.md
+T12: rm -ri backup/data/
