@@ -1,3 +1,4 @@
+# Kell Drinkwater CS131 WS1
 T1: cd /home//ishigaki-cs1/cs131/ws1/; pwd
 T2: ls ../data/
 T3: file logs/app01.log; file .env

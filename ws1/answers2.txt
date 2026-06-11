@@ -1,0 +1,25 @@
+# Kell Drinkwater CS131 WS1
+B1: grep -E "\"city\":\"Santa Barbara\"" /data/yelp/yelp_academic_dataset_business.json
+B2: grep -cE "\"state\":\"CA\"" /data/yelp/yelp_academic_dataset_business.json
+B3: grep -Ei "\"text\":\".*worth.*\"" /data/yelp/yelp_academic_dataset_review.json
+B4: grep -E '("name":".*?(Coffee|Cafe|Café).*?","address)|("categories":".*?(Coffee|Cafe|Café).*?","hours)' /data/yelp/yelp_academic_dataset_business.json 
+B5: grep -E '"stars":(5\.0|4\.5)' /data/yelp/yelp_academic_dataset_business.json
+B6: grep '"stars":5' /data/yelp/yelp_academic_dataset_review.json
+B7: grep -E '([[:alnum:]]|_)+@([[:alnum:]]|\.|_)+\.[[:alpha:]]{2}' /data/yelp/yelp_academic_dataset_review.json
+B8: grep -E '[[:digit:]]{3}-[[:digit:]]{3}-[[:digit:]]{4}' /data/yelp/yelp_academic_dataset_review.json
+B9: grep -E '"name":"P' /data/yelp/yelp_academic_dataset_business.json
+B10: 341072 reviews mention pizza
+B11: grep -Ein '"text":".*service.*"' /data/yelp/yelp_academic_dataset_review.json
+B12: grep -Ev '"categories":".*Restaurants.*"' /data/yelp/yelp_academic_dataset_business.json
+B13: Find businesses where state=CA, from those select the parameter review_count and its value (returning only that part of each record), select only the numerical values of review_count, sort in reverse numeric order, take the first 3 lines of the result.
+B14: grep -E '"city":"Santa Barbara","state":"CA"' /data/yelp/yelp_academic_dataset_business.json \
+> | grep -Eo '"name":".+?","address":' \
+> | grep -Eo '[^"]+","address"' \
+> | grep -Eo '^[^"]+' \
+> | sort
+# Steps: 
+# 1. find Santa Barbara, CA businesses
+# 2. select part of record bounded by "name" and "address"
+# 3. remove initial "name" by selecting non-" characters preceding ","address"
+# 4. remove trailing ","address" by selecting non-" characters from start of line to first " character
+# 5. sort
