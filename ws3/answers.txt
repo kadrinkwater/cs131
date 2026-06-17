@@ -1,0 +1,23 @@
+## Part A
+A1: ls -l > listing.txt; date >> listing.txt
+A2: ls /nonexistent_dir 2> errors.txt
+A3: ls /nonexistent_dir /etc 1> output.txt 2> errors.txt
+A4: ls /nonexistent /etc &> combined.txt
+A5: All you see is the non-erroneous output from ls /etc. The error from ls /nonexistent_dir is redirected to /dev/null, which is a "black hole" for data.
+A6: sort fruits.txt | uniq
+A7: sort fruits.txt | uniq -c | sort -nr
+A8: grep ERROR server.log | wc -l
+A9: grep "ERROR" server.log | grep -Eo " .+$" > errors_only.txt 
+# This leaves a single leading space at the beginning of each line. Not sure how to remove it using only grep, since error messages can also have spaces in them.
+A10: grep -Eo '^[A-Z]+' server.log | sort | uniq -c | sort -nr
+A11: grep -Eo '"state":"[A-Z][A-Z]' /data/yelp/yelp_academic_dataset_business.json | grep -Eo '[A-Z][A-Z]$' | sort | uniq -c | sort -nr | head -n 5
+
+## Part B
+B1: I am user ishigaki-cs1. uid=1034, gid=1034, and I am in the groups ishigaki-cs1, video, docker, and render. UID = User ID, GID = Group ID = the ID number for the single-user group that each user is in.
+B2: fruits.txt has the permission string "-rw-rw-r--". That means: it is not a file, I (the owner) can read and write but not execute, the group can rw but not x, and any user can only read.
+B3: The umask is 002. When a new file is made, it subtracts 002 from 666 to get 664 (rw-rw-r--).
+B4: chmod 000 secret.txt ; chmod u+rw secret.txt 
+B5: chmod 640 fruits.txt 
+B6: find . -user $(whoami) -perm -u=w -type f
+
+## Part C omitted for now
