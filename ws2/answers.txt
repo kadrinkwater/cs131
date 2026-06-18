@@ -1,0 +1,18 @@
+## Kell Drinkwater
+## CS131 WS2
+##
+Q1: git add notes.md ; git commit -m "ws2: add task line"
+Q2: git log --format=oneline | head -n 3 ## or git log --oneline
+Q3: bad change has short hash 87847b8
+Q4: git revert 87847b8
+Q5: git rm --cached bigdata.bin ; echo "bigdata.bin" >> .gitignore ; git commit --amend --allow-empty ; git push
+Q6: git checkout -b feature-summary
+Q7: git add summary.md ; git commit -m "create summary branch and summary.md"
+Q8: git diff main
+Q9: git checkout main ; git merge feature-summary
+Q10: git branch -d feature-summary
+Q11: git merge conflict-branch #ws2/summary.md is conflicted
+Q12: git diff --name-only conflict-branch
+Q13: #nothing
+Q14: git add summary.md ; git commit
+Q15: # Okay, I'm having trouble with this and it's too late to ask for help. My bad. 
