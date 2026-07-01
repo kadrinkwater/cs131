@@ -1,0 +1,22 @@
+#!/bin/bash
+
+title="System report for $HOSTNAME"
+
+report_disk_space () {
+	echo "disk_space function called"
+}
+
+cat << EOF 
+<html>
+<head><title>$title</title></head>
+<body>
+	<h1>$title</h1>
+	<p>Timestamp: $(date)</p>
+	<h2>Storage space</h2>
+	<p>$(report_disk_space)</p>
+	<p>$(df -h | head -10)</p>
+	<h2>User storage space</h2>
+	<p>$(du -b ~/cs131 | sort -nr | head -10)</p>
+</body>
+</html>
+EOF

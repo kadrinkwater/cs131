@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo -n "enter a file name:"
+read FILE
+#FILE=$HOME/asdfg
+
+if [ -f $FILE ] ; then
+	echo "exists and is regular file"
+elif [ -d $FILE ] ; then
+	echo "exists and is directory"
+elif [ -e $FILE ] ; then
+	echo "exists and is something else???"
+else
+	echo "does not exist"
+fi
