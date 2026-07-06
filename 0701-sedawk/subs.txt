@@ -1,0 +1,4 @@
+#sed subs
+s/foo/FOO/g
+s/FOO/BIG/
+
