@@ -20,4 +20,18 @@ https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ult
 - If the destination isn't a directory, just mv the file there and don't cd anywhere.
 - (you don't need to use mvg() in this case, but you might use it out of habit, so it's good for it to handle both cases)
 
+T2: my own .bashrc
 
+Aliases:
+https://github.com/kadrinkwater/cs131/blob/f58f7f01f37e43c0fc40573941b5c80bd5e17cef/ws4/.bashrc#L10
+- vi for vim
+- bd ("backwards cd") to cd to the old directory
+- cs to cd to the frequently used cs131 directory
+
+Function with if statement:
+https://github.com/kadrinkwater/cs131/blob/f58f7f01f37e43c0fc40573941b5c80bd5e17cef/ws4/.bashrc#L14
+First, check if the string $1 is of nonzero length.
+If so, cd to $1 and ls.
+If not, cd home and ls.
+
+(I thought about also checking if $1 exists and is a directory, and returning an error if not. But I realized that I don't know how to return an error exit status... and I was about to look that up... when I realized that the built-in cd will just do that for you if you try to cd somewhere that doesn't exist. Simpler!)
