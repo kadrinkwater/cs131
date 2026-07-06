@@ -1,0 +1,23 @@
+#Kell Drinkwater
+#CS131 WS4
+
+T1:
+
+extract() function
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L243
+
+- Iterate through all positional parameters
+- Make sure each param is a valid file
+- Check the archive type (file extension)
+- Apply an appropriate unarchiving command, since all the different ones and their options are hard to remember
+
+mvg() function
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L311
+
+- Accepts two positional parameters, a file and a destination
+- If the destination is a directory: mv the file to the destination and also cd to the destination
+- (I didn't realize you could use && this way, just to chain two commands together outside of a test expression. I wonder why the author did this. Something to do with the exit status of mvg?)
+- If the destination isn't a directory, just mv the file there and don't cd anywhere.
+- (you don't need to use mvg() in this case, but you might use it out of habit, so it's good for it to handle both cases)
+
+
