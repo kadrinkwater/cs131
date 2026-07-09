@@ -1,0 +1,31 @@
+#Calculate total salary of all employees
+#Count how many employees are in each dept
+
+BEGIN {
+	FS=" "
+	#official solution uses builtin NR for numemployees.
+	#however because I've put a comment in the employees file i have to use
+	#a counter
+	numemployees=0
+	totsal=0
+}
+
+/^[^#]/ {
+	numemployees++
+	totsal+=$2
+	depts[$3]++
+}
+
+#Print
+#num employees
+#total salary
+#average salary
+#num employees per dept
+
+END {
+	print numemployees " employees"
+	print totsal " total salary"
+	print totsal/numemployees " avg salary"
+	for (d in depts)
+		print d " has " depts[d] " employees"
+}

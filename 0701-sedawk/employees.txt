@@ -1,0 +1,9 @@
+# sample data.txt
+John 5000 Engineering
+Alice 6000 HR
+Bob 4000 Sales
+Eve 7000 Engineering
+Charlie 5500 HR
+Dana 5000 Sales
+Fiona 5735 Engineering
+#Greg 5001 Sales

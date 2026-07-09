@@ -1,0 +1,5 @@
+{
+	if (match($7, "bash") && !match($1, "ishigaki")) {
+		print $1 " uses " $7
+	}
+}
