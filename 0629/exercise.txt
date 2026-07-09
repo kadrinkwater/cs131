@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#RECREATING THIS BECAUSE I RM'D IT BY ACCIDENT LOL
+
+#Exercise: Take 2 directories as params
+#Whichever dir has more files,
+#list them in sorted order.
+
+ls1="$(ls $1)"
+echo "$ls1"; echo "-----"
+
+#Causes "ambiguous redirect" because str value of $ls1 is multiple words
+#echo "$(wc -l < $ls1)"
+
+#Word-counts all the files listed in ls1 instead of word-counting ls1 itself
+#echo "$(wc -l $ls1)"
+
+#Gives result of 1 no matter how many lines are in ls1
+#echo "$(echo \"$ls1\" | wc -l)"
+
+#Works
+echo "$(ls $1 | wc -l)"
