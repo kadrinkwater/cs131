@@ -5,3 +5,5 @@ bigdata.bin
 #Ignore huge data files of final project
 *.tsv
 *.tsv.gz
+cut06
+referrers-ranked.txt

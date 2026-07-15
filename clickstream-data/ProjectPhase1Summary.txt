@@ -1,0 +1,94 @@
+OBTAIN DATA
+
+
+
+Download data
+time wget https://dumps.wikimedia.org/other/clickstream/2018-02/clickstream-enwiki-2018-02.tsv.gz
+
+these downloads are taking ~70s to 2+ min
+
+
+Unzip data
+time gzip -dv *.tsv.gz
+~20sec to unzip
+
+
+Mass rename files
+#I found this on stackoverflow why does it work why does mv accept a sed-like pattern here
+#Note that we will need a different pattern if we include data from other language wikipedias!
+for c in click*; do mv $c ${c/clickstream-enwiki-2/2}; done
+
+
+
+CHARACTERIZE USING COMMAND LINE
+
+How big
+du -h *.tsv
+
+Files 1.2-1.6G in size
+
+
+How long
+for f in *.tsv; do time wc -l $f; done
+25-35 million lines, 0.9-1.3 sec to count
+
+
+
+Data Schema is basic TSV with four columns.
+	prev: The previous page the user came from (either its Wikipedia title, or a category[*])
+	curr: The title of the page being viewed.
+	type: 
+		link (if following a link from one Wikipedia page to another)
+		external (if the referrer is not en(.m)?.wikipedia.org)
+		other (prev and curr are both Wikipedia articles, but prev does not link to curr; this usually means people went to the search bar)
+	count: Number of times this (prev, curr) pair occured in the given month.
+
+The ordering of the lines seems weird and inconsistent, but this must be a result of how the page view data is collected and collated into these counts.
+
+
+
+USING CUT, SORT, UNIQ TO LOOK AT TOP REFERRERS
+
+time cut -f 1 2026-06.tsv > cut06
+9.9s
+
+time sort cut06 | uniq -c | sort -nr > referrers-ranked.txt
+34.9s / referrers-ranked.txt is 59M and 2 million lines
+
+I took the top 200 referrers and categorized them by hand.
+By far the greatest number come from other-empty, other-search, other-internal, and other-external, in that order. Then we get Main_Page. Then it starts with lists: "Deaths in 2026" is, depressingly, first. A lot of lists are very high in the rankings. The first non-list actual page is "2026 FIFA World Cup". As we go down, we see lists getting more obscure ("List of nu metal bands") and more non-list pages coming in. The highest ranked individual person is Michael Jackson.
+
+
+
+LOOKING AT TRAFFIC THROUGH A SINGLE PAGE
+
+Let's look at the page for "San Francisco Bay Area".
+time grep "\bSan_Francisco_Bay_Area\b" 2026-06.tsv > sfba.txt
+1.3s to grep through 1 month of data
+
+grep "^San_Francisco_Bay_Area" 2026-06.tsv > from-sfba.txt
+grep -e "\sSan_Francisco_Bay_Area\s" 2026-06.tsv > to-sfba.txt
+awk '{print $4 " " $1}' to-sfba.txt | sort -nr > sfba-incoming.txt
+awk '{print $4 " " $2}' from-sfba.txt | sort -nr > sfba-outgoing.txt
+
+
+
+
+
+
+
+--------------------------------------------
+
+[*] Fuller description from Research:Clickstreams
+
+"""
+an article in the main namespace -> the article title
+a page from any other Wikimedia project -> other-internal
+an external search engine -> other-search
+any other external site -> other-external
+an empty referrer -> other-empty
+anything else -> other-other
+Requests for pages that get redirected were mapped to the page they redirect to. We attempt to exclude spider traffic by classifying user agents with the ua-parser library and a few additional Wikipedia specific filters. Finally, any `(referrer, resource)` pair with 10 or fewer observations was removed from the dataset.
+"""
+
+Note that this is NOT tracking individual users (with a cookie or similar) as they navigate through a long string of pages. This is just looking at pairwise hops from page to page.
