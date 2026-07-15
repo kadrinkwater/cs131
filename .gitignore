@@ -1,3 +1,7 @@
 # Ignore bigdata
 bigdata.bin
 bigdata.bin
+
+#Ignore huge data files of final project
+*.tsv
+*.tsv.gz
