@@ -1,0 +1,97 @@
+Kell Drinkwater ws5 results.
+The model coefficients are 0.09*total_bill and 0.23*size. This means that, if the party size stayed constant but the bill went up $1, the tip is expected to go up 9 cents. Likewise, if the bill stayed constant but the party size went up by 1 person, the tip is expected to go up 23 cents. Party size and total bill, of course, are not fully independent. It would be interesting to calculate the total bill per person, and run another linear regression on that basis.
+
+
+Batch [12c7dec28cc34973bcff9b661319a15e] submitted.
+WARNING: No runtime version specified. Using the default runtime version. It is recommended to select a specific major.minor runtime version in production, as the default runtime version may change at any time.
+Using the default container image
+Waiting for container log creation
+PYSPARK_PYTHON=/opt/dataproc/conda/bin/python
+Generating /home/spark/.pip/pip.conf
+Configuring index-url as 'https://us-python.pkg.dev/artifact-registry-python-cache/virtual-python/simple/'
+JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
+SPARK_EXTRA_CLASSPATH=
+:: loading settings :: file = /etc/spark/conf/ivysettings.xml
+26/07/21 00:01:05 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-google-hadoop-file-system.properties,hadoop-metrics2.properties
+26/07/21 00:01:05 INFO MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+26/07/21 00:01:05 INFO MetricsSystemImpl: google-hadoop-file-system metrics system started
+root
+ |-- total_bill: double (nullable = true)
+ |-- tip: double (nullable = true)
+ |-- sex: string (nullable = true)
+ |-- smoker: string (nullable = true)
+ |-- day: string (nullable = true)
+ |-- time: string (nullable = true)
+ |-- size: integer (nullable = true)
+
+Input Data Frame has 244 total records
++----------+----+------+------+---+------+----+
+|total_bill| tip|   sex|smoker|day|  time|size|
++----------+----+------+------+---+------+----+
+|     16.99|1.01|Female|    No|Sun|Dinner|   2|
+|     10.34|1.66|  Male|    No|Sun|Dinner|   3|
+|     21.01| 3.5|  Male|    No|Sun|Dinner|   3|
+|     23.68|3.31|  Male|    No|Sun|Dinner|   2|
+|     24.59|3.61|Female|    No|Sun|Dinner|   4|
++----------+----+------+------+---+------+----+
+only showing top 5 rows
+
+Transformed data frame (total_bill + size vectorized):
++----------+----+-----------+----+
+|total_bill|size|   features| tip|
++----------+----+-----------+----+
+|     16.99|   2|[16.99,2.0]|1.01|
+|     10.34|   3|[10.34,3.0]|1.66|
+|     21.01|   3|[21.01,3.0]| 3.5|
+|     23.68|   2|[23.68,2.0]|3.31|
+|     24.59|   4|[24.59,4.0]|3.61|
++----------+----+-----------+----+
+only showing top 5 rows
+
+Training set 183 rows, test set 61 rows
+26/07/21 00:01:32 WARN Instrumentation: [dcdaa93d] regParam is zero, which might cause numerical instability and overfitting.
+26/07/21 00:01:33 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.VectorBLAS
+Checking prediction DF: schema, predicted data
+root
+ |-- total_bill: double (nullable = true)
+ |-- tip: double (nullable = true)
+ |-- sex: string (nullable = true)
+ |-- smoker: string (nullable = true)
+ |-- day: string (nullable = true)
+ |-- time: string (nullable = true)
+ |-- size: integer (nullable = true)
+ |-- features: vector (nullable = true)
+ |-- prediction: double (nullable = false)
+
++----------+----+-----------+----+------------------+
+|total_bill|size|   features| tip|        prediction|
++----------+----+-----------+----+------------------+
+|      7.51|   2| [7.51,2.0]| 2.0|1.7652357795682923|
+|      8.51|   2| [8.51,2.0]|1.25|1.8572736386768174|
+|      9.68|   2| [9.68,2.0]|1.32|1.9649579338337917|
+|      9.78|   2| [9.78,2.0]|1.73| 1.974161719744644|
+|     10.59|   2|[10.59,2.0]|1.61| 2.048712385622549|
++----------+----+-----------+----+------------------+
+only showing top 5 rows
+
+Model Coefficients: 0.09, 0.23 / Intercept: 0.61
+On test data: RMSE: 0.99 / R^2: 0.45
+On training data: RMSE: 1.01 / R^2: 0.47
+Batch [12c7dec28cc34973bcff9b661319a15e] finished.
+metadata:
+  '@type': type.googleapis.com/google.cloud.dataproc.v1.BatchOperationMetadata
+  batch: projects/phonic-envoy-499516-i9/locations/us-central1/batches/12c7dec28cc34973bcff9b661319a15e
+  batchUuid: 6d739a35-c1c4-4e23-a553-b5fd06acfee7
+  createTime: '2026-07-20T23:59:54.079959Z'
+  description: Batch
+  labels:
+    goog-dataproc-batch-id: 12c7dec28cc34973bcff9b661319a15e
+    goog-dataproc-batch-uuid: 6d739a35-c1c4-4e23-a553-b5fd06acfee7
+    goog-dataproc-drz-resource-uuid: batch-6d739a35-c1c4-4e23-a553-b5fd06acfee7
+    goog-dataproc-location: us-central1
+  operationType: BATCH
+  warnings:
+  - No runtime version specified. Using the default runtime version. It is recommended
+    to select a specific major.minor runtime version in production, as the default
+    runtime version may change at any time.
+name: projects/phonic-envoy-499516-i9/regions/us-central1/operations/18da7332-cc6d-363c-8668-ef84db520306
