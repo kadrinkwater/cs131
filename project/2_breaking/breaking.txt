@@ -18,7 +18,21 @@ wc -l clickstream-enwiki-2026-06.tsv
 
 Excel Test
 ----------
-(To be completed)
+
+Environment:
+Microsoft Excel Online (Microsoft 365)
+
+Attempt:
+Tried to upload the full 1.5 GB clickstream-enwiki-2026-06.tsv file.
+
+Result:
+The TSV file could not be selected for upload. The Open button remained disabled (grayed out), preventing the dataset from being opened in Excel Online.
+
+Conclusion:
+Excel Online is not suitable for opening or analyzing a dataset of this size and format.
+
+Evidence:
+Screenshot: screenshots/excel_upload_disabled.png
 
 Pandas Test
 Command:
@@ -101,3 +115,5 @@ Wall-clock time:
 Conclusion:
 PySpark successfully performed the same aggregation and produced the same
 highest-ranked referrers as the command-line pipeline.
+
+
