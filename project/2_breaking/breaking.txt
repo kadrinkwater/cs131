@@ -43,4 +43,38 @@ The original 1.5 GB TSV file expanded to approximately 7.08 GB in memory when lo
 
 Command Line Aggregation
 ------------------------
-(To be completed)
+Goal:
+Count how many rows have each value in the prev/referrer column and rank
+the referrers from most common to least common.
+
+Command:
+time cut -f1 data/clickstream-enwiki-2026-06.tsv | sort | uniq -c | sort -nr > referrers-ranked.txt
+
+Result:
+The command completed successfully using a streaming command-line pipeline.
+
+Wall-clock time:
+49.365 seconds
+
+Unique referrers:
+2,090,876
+
+Top 10 referrers:
+6,139,327 other-empty
+3,868,016 other-search
+1,495,308 other-internal
+504,669 other-external
+250,011 Main_Page
+174,572 other-other
+5,256 Deaths_in_2026
+3,503 Wikipedia
+2,989 2026_FIFA_World_Cup
+2,539 Wiki
+
+Output file:
+referrers-ranked.txt
+
+Conclusion:
+The command-line pipeline processed the 1.5 GB file without loading the
+entire dataset into memory. The same aggregation will be reproduced in
+PySpark for comparison.
