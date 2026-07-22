@@ -78,3 +78,26 @@ Conclusion:
 The command-line pipeline processed the 1.5 GB file without loading the
 entire dataset into memory. The same aggregation will be reproduced in
 PySpark for comparison.
+
+
+PySpark Aggregation
+-------------------
+Goal:
+Perform the same aggregation as the command-line version by grouping on the
+prev/referrer column and counting the number of occurrences.
+
+Command:
+time python pyspark_referrers.py 2>&1 | tee pyspark_results.txt
+
+Results:
+Top 10 referrers matched the command-line aggregation.
+
+Total rows read: 34,062,948
+Unique referrers: 2,090,982
+
+Wall-clock time:
+20.60 seconds
+
+Conclusion:
+PySpark successfully performed the same aggregation and produced the same
+highest-ranked referrers as the command-line pipeline.

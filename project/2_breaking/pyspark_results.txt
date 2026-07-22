@@ -1,0 +1,25 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/07/22 09:29:25 WARN Utils: Your hostname, Jasjits-MacBook-Pro.local, resolves to a loopback address: 127.0.0.1; using 172.20.10.2 instead (on interface en0)
+26/07/22 09:29:25 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/07/22 09:29:26 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[Stage 0:>                                                        (0 + 10) / 13][Stage 0:========>                                                (2 + 10) / 13][Stage 0:=================>                                        (4 + 9) / 13][Stage 0:========================================>                 (9 + 4) / 13][Stage 0:================================================>        (11 + 2) / 13][Stage 2:>                                                        (0 + 10) / 11]                                                                                [Stage 3:====>                                                    (1 + 10) / 13][Stage 3:========>                                                (2 + 10) / 13][Stage 3:====================================================>    (12 + 1) / 13]                                                                                [Stage 6:>                                                        (0 + 10) / 13][Stage 6:====>                                                    (1 + 10) / 13][Stage 6:========>                                                (2 + 10) / 13][Stage 6:=============>                                           (3 + 10) / 13][Stage 6:======================>                                   (5 + 8) / 13][Stage 6:===========================================>             (10 + 3) / 13][Stage 6:================================================>        (11 + 2) / 13][Stage 6:====================================================>    (12 + 1) / 13]                                                                                +-------------------+---------+
+|prev               |row_count|
++-------------------+---------+
+|other-empty        |6139327  |
+|other-search       |3868016  |
+|other-internal     |1495308  |
+|other-external     |504669   |
+|Main_Page          |250011   |
+|other-other        |174572   |
+|Deaths_in_2026     |5256     |
+|Wikipedia          |3503     |
+|2026_FIFA_World_Cup|2989     |
+|Wiki               |2539     |
++-------------------+---------+
+only showing top 10 rows
+Total rows read: 34,062,948
+Unique referrers: 2,090,982
