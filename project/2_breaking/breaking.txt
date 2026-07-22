@@ -1,0 +1,46 @@
+Phase 2 - Breaking Point
+
+Dataset:
+Wikipedia Clickstream (June 2026)
+
+Download Information
+--------------------
+Compressed file size: 461 MB
+Decompressed file size: 1.5 GB
+Rows: 34,062,948
+
+Commands Used
+-------------
+curl -O https://dumps.wikimedia.org/other/clickstream/2026-06/clickstream-enwiki-2026-06.tsv.gz
+gzip -d clickstream-enwiki-2026-06.tsv.gz
+du -h clickstream-enwiki-2026-06.tsv
+wc -l clickstream-enwiki-2026-06.tsv
+
+Excel Test
+----------
+(To be completed)
+
+Pandas Test
+Command:
+time python3 pandas_test.py 2>&1 | tee pandas_results.txt
+
+Initial attempt:
+The first pandas.read_csv() attempt failed after 1.95 seconds because line 4,129,605 contained 5 fields instead of the expected 4.
+
+Second attempt:
+The test was rerun using on_bad_lines="warn" so malformed rows would be skipped.
+
+Result:
+Loaded successfully.
+
+Rows loaded: 33,869,580
+Script runtime: 24.11 seconds
+Wall-clock time: 36.28 seconds
+DataFrame memory usage: 7.08 GB
+
+Conclusion:
+The original 1.5 GB TSV file expanded to approximately 7.08 GB in memory when loaded into pandas, demonstrating the significant memory overhead of loading the entire dataset into RAM.
+
+Command Line Aggregation
+------------------------
+(To be completed)
