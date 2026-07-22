@@ -1,0 +1,23 @@
+/Users/jasjitdeol/cs131/project/2_breaking/pandas_test.py:9: ParserWarning: Skipping line 4129605: expected 4 fields, saw 5
+Skipping line 5846929: expected 4 fields, saw 5
+Skipping line 6293687: expected 4 fields, saw 5
+Skipping line 7131485: expected 4 fields, saw 5
+Skipping line 10648770: expected 4 fields, saw 5
+Skipping line 11355385: expected 4 fields, saw 5
+Skipping line 12783651: expected 4 fields, saw 5
+Skipping line 17245880: expected 4 fields, saw 5
+Skipping line 17925546: expected 4 fields, saw 5
+Skipping line 18168444: expected 4 fields, saw 5
+Skipping line 20450618: expected 4 fields, saw 5
+Skipping line 21827530: expected 4 fields, saw 5
+Skipping line 22498393: expected 4 fields, saw 5
+Skipping line 23595682: expected 4 fields, saw 5
+Skipping line 23603847: expected 4 fields, saw 5
+Skipping line 25527915: expected 4 fields, saw 5
+Skipping line 28506109: expected 4 fields, saw 5
+
+  df = pd.read_csv(
+Loaded successfully
+Rows loaded: 33,869,580
+Runtime: 24.11 seconds
+DataFrame memory: 7.08 GB
