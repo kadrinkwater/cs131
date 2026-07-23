@@ -7,3 +7,6 @@ bigdata.bin
 *.tsv.gz
 cut06
 referrers-ranked.txt
+
+#This is a Mac filesystem thing
+.DS_Store
