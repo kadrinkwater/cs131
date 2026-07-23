@@ -1,0 +1,119 @@
+Phase 2 - Breaking Point
+
+Dataset:
+Wikipedia Clickstream (June 2026)
+
+Download Information
+--------------------
+Compressed file size: 461 MB
+Decompressed file size: 1.5 GB
+Rows: 34,062,948
+
+Commands Used
+-------------
+curl -O https://dumps.wikimedia.org/other/clickstream/2026-06/clickstream-enwiki-2026-06.tsv.gz
+gzip -d clickstream-enwiki-2026-06.tsv.gz
+du -h clickstream-enwiki-2026-06.tsv
+wc -l clickstream-enwiki-2026-06.tsv
+
+Excel Test
+----------
+
+Environment:
+Microsoft Excel Online (Microsoft 365)
+
+Attempt:
+Tried to upload the full 1.5 GB clickstream-enwiki-2026-06.tsv file.
+
+Result:
+The TSV file could not be selected for upload. The Open button remained disabled (grayed out), preventing the dataset from being opened in Excel Online.
+
+Conclusion:
+Excel Online is not suitable for opening or analyzing a dataset of this size and format.
+
+Evidence:
+Screenshot: screenshots/excel_upload_disabled.png
+
+Pandas Test
+Command:
+time python3 pandas_test.py 2>&1 | tee pandas_results.txt
+
+Initial attempt:
+The first pandas.read_csv() attempt failed after 1.95 seconds because line 4,129,605 contained 5 fields instead of the expected 4.
+
+Second attempt:
+The test was rerun using on_bad_lines="warn" so malformed rows would be skipped.
+
+Result:
+Loaded successfully.
+
+Rows loaded: 33,869,580
+Script runtime: 24.11 seconds
+Wall-clock time: 36.28 seconds
+DataFrame memory usage: 7.08 GB
+
+Conclusion:
+The original 1.5 GB TSV file expanded to approximately 7.08 GB in memory when loaded into pandas, demonstrating the significant memory overhead of loading the entire dataset into RAM.
+
+Command Line Aggregation
+------------------------
+Goal:
+Count how many rows have each value in the prev/referrer column and rank
+the referrers from most common to least common.
+
+Command:
+time cut -f1 data/clickstream-enwiki-2026-06.tsv | sort | uniq -c | sort -nr > referrers-ranked.txt
+
+Result:
+The command completed successfully using a streaming command-line pipeline.
+
+Wall-clock time:
+49.365 seconds
+
+Unique referrers:
+2,090,876
+
+Top 10 referrers:
+6,139,327 other-empty
+3,868,016 other-search
+1,495,308 other-internal
+504,669 other-external
+250,011 Main_Page
+174,572 other-other
+5,256 Deaths_in_2026
+3,503 Wikipedia
+2,989 2026_FIFA_World_Cup
+2,539 Wiki
+
+Output file:
+referrers-ranked.txt
+
+Conclusion:
+The command-line pipeline processed the 1.5 GB file without loading the
+entire dataset into memory. The same aggregation will be reproduced in
+PySpark for comparison.
+
+
+PySpark Aggregation
+-------------------
+Goal:
+Perform the same aggregation as the command-line version by grouping on the
+prev/referrer column and counting the number of occurrences.
+
+Command:
+time python pyspark_referrers.py 2>&1 | tee pyspark_results.txt
+
+Results:
+Top 10 referrers matched the command-line aggregation.
+
+Total rows read: 34,062,948
+Unique referrers: 2,090,982
+
+Wall-clock time:
+20.60 seconds
+
+Conclusion:
+PySpark successfully performed the same aggregation and produced the same
+highest-ranked referrers as the command-line pipeline.
+
+
