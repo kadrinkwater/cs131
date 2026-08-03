@@ -83,8 +83,304 @@ real	3m34.033s
 
 Analysis: Top Internal Referrers
 
+Processing one month at a time:
 ==== 2020-02 ====
-Total rows: 31,024,605
-Result written to gs://phonic-envoy-499516-i9-cs131/output/rankRefs2020-02.tsv
-45.50 sec on 2 executors
-real	2m20.935s
++--------------------+-----------+
+|                prev|sum(clicks)|
++--------------------+-----------+
+|Parasite_(2019_film)|    2697280|
+| 92nd_Academy_Awards|    2159639|
+|        Kirk_Douglas|    2093946|
+|        Donald_Trump|    2051689|
+|     Joaquin_Phoenix|    1804678|
+|      Deaths_in_2020|    1791182|
+|2020_Democratic_P...|    1785016|
+|         Coronavirus|    1645625|
+|Birds_of_Prey_(20...|    1636723|
+|             Shakira|    1558680|
+|Once_Upon_a_Time_...|    1480004|
+|Miguel_Ángel_Féli...|    1440308|
+|   Michael_Bloomberg|    1405261|
+|          XFL_(2020)|    1387030|
+|       Billie_Eilish|    1365537|
++--------------------+-----------+
+69.04 sec on 2 executors
+
+
+Processing several months at a time:
+==== 2019-07 ====
++----------------------------------------+-----------+
+|                                    prev|sum(clicks)|
++----------------------------------------+-----------+
+|                         Stranger_Things|    5274316|
+|               Spider-Man:_Far_From_Home|    2980580|
+|              Stranger_Things_(season_3)|    2939189|
+|               The_Lion_King_(2019_film)|    2657384|
+|           Once_Upon_a_Time_in_Hollywood|    2424376|
+|                       Avengers:_Endgame|    1977359|
+|                            2019_in_film|    1751270|
+|                          Deaths_in_2019|    1718857|
+|                        Midsommar_(film)|    1582150|
+|                           Megan_Rapinoe|    1526150|
+|                           Boris_Johnson|    1432226|
+|United_States_women's_national_soccer...|    1377657|
+|                           Cameron_Boyce|    1355248|
+|               The_Boys_(2019_TV_series)|    1260260|
+|                         Jeffrey_Epstein|    1228689|
++----------------------------------------+-----------+
+
+==== 2019-08 ====
++-----------------------------+-----------+
+|                         prev|sum(clicks)|
++-----------------------------+-----------+
+|Once_Upon_a_Time_in_Hollywood|    4139153|
+|    The_Boys_(2019_TV_series)|    2193113|
+|       Mindhunter_(TV_series)|    1931671|
+|              Jeffrey_Epstein|    1881515|
+|                 2019_in_film|    1495611|
+|               Deaths_in_2019|    1493335|
+|                 Tate_murders|    1318258|
+|                  Sharon_Tate|    1290340|
+|                Manson_Family|    1280405|
+|            Avengers:_Endgame|    1224358|
+|                 Hobbs_&_Shaw|    1157924|
+|              Stranger_Things|    1047974|
+|            Quentin_Tarantino|    1041371|
+|               Charles_Manson|    1039143|
+|     Sacred_Games_(TV_series)|    1021859|
++-----------------------------+-----------+
+
+==== 2019-09 ====
++-------------------------------+-----------+
+|                           prev|sum(clicks)|
++-------------------------------+-----------+
+| Queen_of_the_South_(TV_series)|    6450625|
+|                 It_Chapter_Two|    2541945|
+|                 Deaths_in_2019|    1626234|
+|                   Wu-Tang_Clan|    1307635|
+|  Once_Upon_a_Time_in_Hollywood|    1237204|
+|                 Greta_Thunberg|    1145840|
+|         Mindhunter_(TV_series)|    1112464|
+|              Joker_(2019_film)|    1095434|
+|                The_Brady_Bunch|    1057278|
+|           September_11_attacks|    1021670|
+|                Joaquin_Phoenix|     947883|
+|List_of_Bollywood_films_of_2019|     927287|
+|      Unbelievable_(miniseries)|     894671|
+|                 It_(2017_film)|     859925|
+|                   Elizabeth_II|     831029|
++-------------------------------+-----------+
+
+==== 2019-10 ====
++-------------------------------+-----------+
+|                           prev|sum(clicks)|
++-------------------------------+-----------+
+|              Joker_(2019_film)|    4525754|
+|                Joaquin_Phoenix|    3834757|
+|                 Deaths_in_2019|    1551533|
+|El_Camino:_A_Breaking_Bad_Movie|    1203585|
+|List_of_Bollywood_films_of_2019|    1184421|
+|                   Judy_Garland|    1103702|
+|     Peaky_Blinders_(TV_series)|    1067473|
+|                  River_Phoenix|     972529|
+|          Terminator:_Dark_Fate|     930304|
+| 2019_Canadian_federal_election|     905882|
+|                   Elizabeth_II|     901281|
+| List_of_American_films_of_2019|     875447|
+|                War_(2019_film)|     762148|
+|                   2019_in_film|     750567|
+|                   Heath_Ledger|     746836|
++-------------------------------+-----------+
+
+==== 2019-11 ====
++--------------------------------------+-----------+
+|                                  prev|sum(clicks)|
++--------------------------------------+-----------+
+|                          Elizabeth_II|    3068289|
+|              The_Irishman_(2019_film)|    2767302|
+|                       The_Mandalorian|    2756758|
+|                    Henry_V_of_England|    2539100|
+|                  The_King_(2019_film)|    1964250|
+|Princess_Margaret,_Countess_of_Snowdon|    1944165|
+|                 The_Crown_(TV_series)|    1570865|
+|      Prince_Philip,_Duke_of_Edinburgh|    1469180|
+|                        Deaths_in_2019|    1440813|
+|                        Ford_v_Ferrari|    1261141|
+|                     Joker_(2019_film)|    1220037|
+|              Charles,_Prince_of_Wales|    1181086|
+|          Princess_Alice_of_Battenberg|    1023873|
+|                 Terminator:_Dark_Fate|     991644|
+|          Charlie's_Angels_(2019_film)|     984112|
++--------------------------------------+-----------+
+
+==== 2019-12 ====
++--------------------------------------+-----------+
+|                                  prev|sum(clicks)|
++--------------------------------------+-----------+
+|      Star_Wars:_The_Rise_of_Skywalker|    3958733|
+|               The_Witcher_(TV_series)|    3676778|
+|                       The_Mandalorian|    2857625|
+|                          Elizabeth_II|    2286252|
+|                        Deaths_in_2019|    1822755|
+|         Once_Upon_a_Time_in_Hollywood|    1820889|
+|                           Jimmy_Hoffa|    1569684|
+|                      Cats_(2019_film)|    1509480|
+|                         Frank_Sheeran|    1469284|
+|Princess_Margaret,_Countess_of_Snowdon|    1381391|
+|                             Star_Wars|    1310069|
+|                           The_Witcher|    1236136|
+|                          The_Irishman|    1195438|
+|                  6_Underground_(film)|    1186347|
+|  2019_United_Kingdom_general_election|    1175323|
++--------------------------------------+-----------+
+
+==== 2020-01 ====
++-----------------------------+-----------+
+|                         prev|sum(clicks)|
++-----------------------------+-----------+
+|                  Kobe_Bryant|    4396686|
+|                 Elizabeth_II|    2459510|
+|      The_Witcher_(TV_series)|    2358286|
+|              Aaron_Hernandez|    2086630|
+|             1917_(2019_film)|    2059335|
+|Once_Upon_a_Time_in_Hollywood|    1962698|
+|               Deaths_in_2020|    1950456|
+|                Billie_Eilish|    1903041|
+|                  Coronavirus|    1887838|
+|              Qasem_Soleimani|    1886997|
+|    Sex_Education_(TV_series)|    1702687|
+|              You_(TV_series)|    1604404|
+|    Meghan,_Duchess_of_Sussex|    1508606|
+|              Joaquin_Phoenix|    1491733|
+|          92nd_Academy_Awards|    1304608|
++-----------------------------+-----------+
+
+==== 2020-02 ====
++----------------------------------------+-----------+
+|                                    prev|sum(clicks)|
++----------------------------------------+-----------+
+|                    Parasite_(2019_film)|    2697280|
+|                     92nd_Academy_Awards|    2159639|
+|                            Kirk_Douglas|    2093946|
+|                            Donald_Trump|    2051689|
+|                         Joaquin_Phoenix|    1804678|
+|                          Deaths_in_2020|    1791182|
+|2020_Democratic_Party_presidential_pr...|    1785016|
+|                             Coronavirus|    1645625|
+|               Birds_of_Prey_(2020_film)|    1636723|
+|                                 Shakira|    1558680|
+|           Once_Upon_a_Time_in_Hollywood|    1480004|
+|             Miguel_Ángel_Félix_Gallardo|    1440308|
+|                       Michael_Bloomberg|    1405261|
+|                              XFL_(2020)|    1387030|
+|                           Billie_Eilish|    1365537|
++----------------------------------------+-----------+
+
+==== 2020-03 ====
++----------------------------------------+-----------+
+|                                    prev|sum(clicks)|
++----------------------------------------+-----------+
+|            2019–20_coronavirus_pandemic|   13879231|
+|                Coronavirus_disease_2019|    3272232|
+|                             Coronavirus|    3097247|
+|2019–20_coronavirus_pandemic_by_count...|    2870266|
+|                          Deaths_in_2020|    2404752|
+|2020_Democratic_Party_presidential_pr...|    2363923|
+|                            Andrew_Cuomo|    2202160|
+|                             Spanish_flu|    1838222|
+|                      Madam_C._J._Walker|    1643938|
+|                                Pandemic|    1480920|
+|2020_coronavirus_pandemic_in_the_Unit...|    1437380|
+|Severe_acute_respiratory_syndrome_cor...|    1306825|
+|                       List_of_epidemics|    1294541|
+|                            Elizabeth_II|    1276749|
+|                            Donald_Trump|    1242924|
++----------------------------------------+-----------+
+
+==== 2020-04 ====
++----------------------+-----------+
+|                  prev|sum(clicks)|
++----------------------+-----------+
+|           Money_Heist|    3018104|
+|        Deaths_in_2020|    2690061|
+|           Kim_Jong-un|    2585317|
+|            Joe_Exotic|    1982069|
+|         Carole_Baskin|    1801593|
+|           Irrfan_Khan|    1753632|
+|           Kim_Jong-il|    1713562|
+|          Andrew_Cuomo|    1713010|
+|          Elizabeth_II|    1654489|
+|     Ozark_(TV_series)|    1607402|
+|        Michael_Jordan|    1579836|
+|         Boris_Johnson|    1575842|
+|          Donald_Trump|    1542640|
+|        2020_NFL_Draft|    1370653|
+|Extraction_(2020_film)|    1358824|
++----------------------+-----------+
+
+==== 2020-05 ====
++----------------------------------------+-----------+
+|                                    prev|sum(clicks)|
++----------------------------------------+-----------+
+|                               Elon_Musk|    4572026|
+|                       COVID-19_pandemic|    4168571|
+|                          Michael_Jordan|    3107782|
+|                  Hollywood_(miniseries)|    2102480|
+|                          Deaths_in_2020|    2099805|
+|                     Catherine_the_Great|    1425400|
+|                             Money_Heist|    1204219|
+|                   List_of_NBA_champions|    1200605|
+|                            Donald_Trump|    1168480|
+|           Never_Have_I_Ever_(TV_series)|    1165161|
+|COVID-19_pandemic_by_country_and_terr...|    1120562|
+|            The_Last_Kingdom_(TV_series)|    1096427|
+|                           Chicago_Bulls|    1063646|
+|                                 UFC_249|    1041224|
+|                            Elizabeth_II|    1025807|
++----------------------------------------+-----------+
+
+==== 2020-06 ====
++----------------------------------------+-----------+
+|                                    prev|sum(clicks)|
++----------------------------------------+-----------+
+|                    Sushant_Singh_Rajput|    4752907|
+|                       COVID-19_pandemic|    2877286|
+|                          Deaths_in_2020|    1749696|
+|                            Donald_Trump|    1699640|
+|                         Jeffrey_Epstein|    1487885|
+|                          13_Reasons_Why|    1414958|
+|                               Elon_Musk|    1242889|
+|                       Chiranjeevi_Sarja|    1233719|
+|                      Black_Lives_Matter|    1219399|
+|                 Killing_of_George_Floyd|    1174352|
+|                            Elizabeth_II|     973094|
+|                               Bruce_Lee|     947956|
+|Eurovision_Song_Contest:_The_Story_of...|     846387|
+|                   George_Floyd_protests|     808799|
+|                  Martin_Luther_King_Jr.|     764994|
++----------------------------------------+-----------+
+
+==== 2020-07 ====
++----------------------------------------+-----------+
+|                                    prev|sum(clicks)|
++----------------------------------------+-----------+
+|                      Hamilton_(musical)|    5423057|
+|                      Alexander_Hamilton|    5147024|
+|                             Naya_Rivera|    2366706|
+|                       COVID-19_pandemic|    2256791|
+|                          Deaths_in_2020|    1888662|
+|             Elizabeth_Schuyler_Hamilton|    1772190|
+|                       Ghislaine_Maxwell|    1608651|
+|               The_Old_Guard_(2020_film)|    1554039|
+|                         Jeffrey_Epstein|    1406776|
+|                            Donald_Trump|    1341768|
+|                           Kelly_Preston|    1323122|
+|                              Aaron_Burr|    1287061|
+|                    Hamilton_(2020_film)|    1281456|
+|Eurovision_Song_Contest:_The_Story_of...|    1105236|
+|                               Elon_Musk|    1086388|
++----------------------------------------+-----------+
+
+364.32 sec on 4 executors
+real	7m31.355s
+

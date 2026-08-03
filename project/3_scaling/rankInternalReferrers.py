@@ -51,13 +51,13 @@ df = (
 #print(f"Total rows: {df.count():,}")
 
 #Carry out ranking computation
-result = rankInternalReferrers(df, 100)
+result = rankInternalReferrers(df, 15)
 
 #Write out result
 result.write.mode("overwrite").csv(outPath, header=True, sep='\t')
 print(f"Result written to {outPath}")
 print("Top 15:")
-result.show(15)
+result.show(truncate=40)
 
 #Stop timer
 computeTime = time.time() - startTime
