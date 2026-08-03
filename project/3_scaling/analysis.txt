@@ -6,6 +6,10 @@ May-Aug 2024: rollout to several more countries
 Oct 28, 2024: Launched worldwide
 
 
+When Google launched AI Overview, website owners worried that it would reduce click-through traffic. Has it done so? We can make a guess by looking at the number / proportion of Wikipedia page views that come from external search engines (prev='other-search').
+
+note to self: gcloud storage cp <filename> $BUCKETURL/code/
+
 
 Running search_proportion_month.py on 2026-06:
 Total rows:  34062948
@@ -60,10 +64,27 @@ Total rows: 36,748,789
 Total clicks: 6,585,424,950
 Search clicks: 2,901,742,070
 44.06% from search
-234.11 sec on 2 executors
-
-real	5m48.802s
-user	0m2.319s
-sys	0m0.472s
 
 That looks like a negative result: the release of Google Search AI Overview has not made a big difference to the proportion of Wikipedia page requests coming from a search engine referrer.
+
+
+Timing results:
+234.11 sec on 2 executors
+real	5m48.802s
+188.29 sec on 3 executors
+real	4m34.230s
+123.36 sec on 4 executors
+real	3m34.033s
+
+
+
+
+
+
+Analysis: Top Internal Referrers
+
+==== 2020-02 ====
+Total rows: 31,024,605
+Result written to gs://phonic-envoy-499516-i9-cs131/output/rankRefs2020-02.tsv
+45.50 sec on 2 executors
+real	2m20.935s
