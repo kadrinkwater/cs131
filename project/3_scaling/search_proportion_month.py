@@ -77,3 +77,7 @@ print(f"Search clicks: {searchClicks:,}")
 print(f"{proportion:.2f} from search")
 print(f"{computeTime:.2f} sec on {executors} executors")
 print("")
+
+
+#Stop SparkSession
+spark_sesh.stop()
