@@ -4,3 +4,66 @@ Google Search AI Overview timeline
 May 14, 2024: Launched in US
 May-Aug 2024: rollout to several more countries
 Oct 28, 2024: Launched worldwide
+
+
+
+Running search_proportion_month.py on 2026-06:
+Total rows:  34062948
+==== 2026-06 ====
+Total clicks: 5,882,163,125
+Search clicks: 2,472,297,839
+42.03 from search
+44.43 sec on 2 executors
+
+
+Running search_prop_severalmonths.py on 20**-10:
+time gcloud dataproc batches submit pyspark $BUCKETURL/code/search_prop_severalmonths.py --region=$REGION --deps-bucket=$BUCKETURL --properties=spark.dynamicAllocation.enabled=false,spark.executor.instances=2
+
+========= BEGIN ANALYSIS ==========
+==== 2018-10 ====
+Total rows: 29,653,204
+Total clicks: 6,963,491,216
+Search clicks: 3,145,639,890
+45.17% from search
+==== 2019-10 ====
+Total rows: 32,225,532
+Total clicks: 7,461,282,460
+Search clicks: 3,161,462,644
+42.37% from search
+==== 2020-10 ====
+Total rows: 31,154,891
+Total clicks: 7,250,500,253
+Search clicks: 3,445,118,477
+47.52% from search
+==== 2021-10 ====
+Total rows: 31,144,497
+Total clicks: 6,665,316,507
+Search clicks: 3,018,637,180
+45.29% from search
+==== 2022-10 ====
+Total rows: 32,881,584
+Total clicks: 6,902,518,787
+Search clicks: 2,905,426,061
+42.09% from search
+==== 2023-10 ====
+Total rows: 33,700,222
+Total clicks: 7,338,514,937
+Search clicks: 3,485,922,841
+47.50% from search
+==== 2024-10 ====
+Total rows: 34,170,973
+Total clicks: 6,786,017,598
+Search clicks: 3,140,162,035
+46.27% from search
+==== 2025-10 ====
+Total rows: 36,748,789
+Total clicks: 6,585,424,950
+Search clicks: 2,901,742,070
+44.06% from search
+234.11 sec on 2 executors
+
+real	5m48.802s
+user	0m2.319s
+sys	0m0.472s
+
+That looks like a negative result: the release of Google Search AI Overview has not made a big difference to the proportion of Wikipedia page requests coming from a search engine referrer.
