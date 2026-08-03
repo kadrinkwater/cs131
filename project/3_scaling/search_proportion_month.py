@@ -61,12 +61,12 @@ print("Total rows: ", df.count())
 #Calculate number of clicks in total / from search
 totalClicks = sumClicks(df)
 searchClicks = sumClicks(df.filter(df.prev == "other-search"))
-proportion = searchClicks/totalClicks
+proportion = (searchClicks/totalClicks)*100
 
 #Stop timer
 computeTime = time.time() - startTime
 #Get num executors
-executors = spark.conf.get("spark.executor.instances", "default")
+executors = spark_sesh.conf.get("spark.executor.instances", "default")
 
 #Print output
 # output = f"Total clicks: {tot:,} / Clicks from search: {srch:,} ({frac:.1f}%)"
